@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Welcome</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,20 +21,24 @@
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
-      height: 100%;
+      height: 107.5%;
     }
     
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
-      padding: 15px;
-    }
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      
+ }
     
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 765px) {
       .sidenav {
         height: auto;
         padding: 15px;
@@ -78,27 +82,31 @@
     <!---------------------------------------------------------------------------------------------------------- -->
     
     <div class="col-sm-6 text-left">
-      <h1>Welcome</h1>
-      <p> i am a boy </p>
-      
+      </br>
+      </br>
+      <center><h1>Welcome</h1></center>
+      </br>
       
        <form class="form-horizontal">        
            <fieldset>
            <div class="col-lg-10">
                <label class="control-label"  for="focusedInput">Input Method 1)  Enter URL file on the Web </label>
                <input class="form-control" id="focusedInput" type="text">          
-               
+               </br> 
                <label class="control-label"> Input Method 2) Upload file(.txt, .pdf) </label>
                <input type="file" accept='.pdf,.txt'  onchange="javascript:document.getElementById('fileName').value = this.value">             
 
-        
+         	</br> 
                 <label class="control-label"> Input Method 3) Paste the whole file here </label>
-                <textarea class="form-control" rows="15" id="textArea"> </textarea>
+                <textarea class="form-control" rows="15" id="textArea" style="resize:vertical;" ></textarea>
                 <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
 
-                
+
+                </br>
+		<div align="right">  
                 <button type="reset" class="btn btn-default">Cancel</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
+		</div>
             </div>
             </fieldset>
         </form>
@@ -113,7 +121,7 @@
 </div>
 
 
-<footer class="container-fluid text-center">
+<footer class="container-fluid text-center" id="foot">
   <p>Footer Text</p>
 </footer>
 
