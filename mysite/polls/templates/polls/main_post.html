@@ -28,7 +28,7 @@
     footer {
       background-color: #555;
       color: white;
-      position: relative;
+      position: auto;
       bottom: 0;
       width: 100%;
       height: 50px;
@@ -47,6 +47,36 @@
     }
     
   </style>
+	<script type="text/javascript">
+		function Radio_Check(){
+			var oEle1 = document.getElementById('focusedInput') ;
+			var oEle2 = document.getElementById('textArea') ; 
+             		var sample = document.getElementsByName('choose_radio');
+			for(var i=0; i<sample.length;i++){
+				if(sample[i].checked == true){
+					if(sample[i].value == "num1"){
+						oEle1.readOnly = false;
+						oEle2.readOnly = true;
+						document.getElementById("upload").disabled = true;
+						alert("Use enter URL file in your PC")
+					}
+					if(sample[i].value == "num2"){
+						oEle1.readOnly = true;
+						document.getElementById("upload").disabled = false;
+						oEle2.readOnly = true;
+						alert("Use upload file")
+					}
+					if(sample[i].value == "num3"){
+						oEle1.readOnly = true;
+						document.getElementById("upload").disabled = true;
+						oEle2.readOnly = false;
+						alert("Use paste the whole file");
+					}
+				}
+			} 
+           
+		}
+        </script>
 </head>
 <body>
 
@@ -89,18 +119,21 @@
       
        <form class="form-horizontal">        
            <fieldset>
-           <div class="col-lg-10">
-               <label class="control-label"  for="focusedInput">Input Method 1)  Enter URL file on the Web </label>
-               <input class="form-control" id="focusedInput" type="text">          
-               </br> 
-               <label class="control-label"> Input Method 2) Upload file(.txt, .pdf) </label>
-               <input type="file" accept='.pdf,.txt'  onchange="javascript:document.getElementById('fileName').value = this.value">             
+           <div class="col-lg-9">
+               	<input type=radio name="choose_radio" value="num1" onClick="Radio_Check();">
+		 <label class="control-label"  for="focusedInput">Input Method 1)  Enter URL file on the Web </label>
+                <input class="form-control" id="focusedInput" type="text"  >          
+                </br>
+
+		<input type=radio name="choose_radio" value="num2" onClick="Radio_Check();" checked > 
+                <label class="control-label"> Input Method 2) Upload file(.txt, .pdf) </label>
+                <input type="file" id="upload" accept='.pdf,.txt'  onchange="javascript:document.getElementById('fileName').value = this.value" >             
 
          	</br> 
+		<input type=radio name="choose_radio" value="num3" onClick="Radio_Check();">
                 <label class="control-label"> Input Method 3) Paste the whole file here </label>
                 <textarea class="form-control" rows="15" id="textArea" style="resize:vertical;" ></textarea>
                 <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-
 
                 </br>
 		<div align="right">  
@@ -125,6 +158,11 @@
   <p>Footer Text</p>
 </footer>
 
-
+<script type="text/javascript">
+	var er1 = document.getElementById('focusedInput');
+	var er2 = document.getElementById('textArea');
+	er1.readOnly = true;
+	er2.readOnly = true;
+</script>
 </body>
 </html>
